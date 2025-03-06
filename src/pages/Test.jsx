@@ -31,6 +31,8 @@ function Test(props) {
         }
     }, [answers])
 
+
+
     const overHandler = () => {
         const arr = []
         for (let key in answers) {
@@ -39,27 +41,34 @@ function Test(props) {
         const rightAnswers = arr.filter((el) => el === true).length
         const incorrectAnswers = arr.filter((el) => el === false).length
         const procent = Math.round((rightAnswers / questions.length) * 100)
-        if (procent >= 0 && procent <= 10) {
-            setOverPicture({ text: 'Пидор', picture: '/images/0.jpg' })
-        } else if (procent > 10 && procent <= 20) {
-            setOverPicture({ text: 'Жидкарь', picture: '/images/10.jpg' })
-        } else if (procent > 20 && procent <= 30) {
-            setOverPicture({ text: 'Сказочный еблан', picture: '/images/20.jpg' })
-        } else if (procent > 30 && procent <= 40) {
-            setOverPicture({ text: 'Чмоня', picture: '/images/30.jpg' })
-        } else if (procent > 40 && procent <= 50) {
-            setOverPicture({ text: 'волосатый анус', picture: '/images/40.jpg' })
-        } else if (procent > 50 && procent <= 60) {
-            setOverPicture({ text: 'почти смешарик', picture: '/images/50.jpg' })
-        } else if (procent > 60 && procent <= 70) {
-            setOverPicture({ text: 'ЧУХОБЛОХ', picture: '/images/60.jpg' })
-        } else if (procent > 70 && procent <= 80) {
-            setOverPicture({ text: 'вагиносгибатель', picture: '/images/70.jpg' })
-        } else if (procent > 80 && procent <= 90) {
-            setOverPicture({ text: 'Сладкий бубалех', picture: '/images/80.jpg' })
-        } else if (procent > 90 && procent <= 100) {
-            setOverPicture({ text: 'Настоящий слон, слоняра, базированный офицер', picture: '/images/90.jpg' })
+        const random = Math.floor(Math.random() * 10) 
+        if (random <= 1) {
+            setOverPicture({ text: 'Пидор', picture: '0.jpg' })
+        } else {
+            if (procent >= 0 && procent <= 10) {
+                setOverPicture({ text: 'Пидор', picture: '0.jpg' })
+            } else if (procent > 10 && procent <= 20) {
+                setOverPicture({ text: 'Жидкарь', picture: '10.jpg' })
+            } else if (procent > 20 && procent <= 30) {
+                setOverPicture({ text: 'Сказочный еблан', picture: '20.jpg' })
+            } else if (procent > 30 && procent <= 40) {
+                setOverPicture({ text: 'Чмоня', picture: '30.jpg' })
+            } else if (procent > 40 && procent <= 50) {
+                setOverPicture({ text: 'волосатый анус', picture: '40.jpg' })
+            } else if (procent > 50 && procent <= 60) {
+                setOverPicture({ text: 'почти смешарик', picture: '50.jpg' })
+            } else if (procent > 60 && procent <= 70) {
+                setOverPicture({ text: 'ЧУХОБЛОХ', picture: '60.jpg' })
+            } else if (procent > 70 && procent <= 80) {
+                setOverPicture({ text: 'вагиносгибатель', picture: '70.jpg' })
+            } else if (procent > 80 && procent <= 90) {
+                setOverPicture({ text: 'Сладкий бубалех', picture: '80.jpg' })
+            } else if (procent > 90 && procent <= 100) {
+                setOverPicture({ text: 'Настоящий слон, слоняра, базированный офицер', picture: '90.jpg' })
+            }
         }
+
+
         setAllAnswered(true)
     }
 
@@ -86,7 +95,7 @@ function Test(props) {
             </Card>
             <Box>
                 <Divider />
-                <Typography sx={{ fontSize: '1.5rem' }}>{allAnswered ? 'Вопросов нет':'ВОПРОСЫ'}</Typography>
+                <Typography sx={{ fontSize: '1.5rem' }}>{allAnswered ? 'Вопросов нет' : 'ВОПРОСЫ'}</Typography>
                 <Divider />
             </Box>
             <Card sx={{ boxShadow: 'none' }}>
